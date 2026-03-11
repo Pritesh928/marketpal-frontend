@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./css/sellpage.css";
 
-axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL = "https://marketpal-backend.onrender.com";
 
 export default function SellPage() {
   const navigate = useNavigate();
