@@ -36,7 +36,7 @@ export default function PaymentPage() {
 
     try {
       // Step 1: Create order from backend
-      const orderResponse = await fetch("https://3000-cs-878632597234-default.cs-asia-southeast1-fork.cloudshell.dev/api/payment/create-order", {
+      const orderResponse = await fetch("https://marketpal-backend.onrender.com/api/payment/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: total }), // amount in paise
