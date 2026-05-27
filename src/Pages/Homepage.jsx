@@ -9,7 +9,8 @@ import ProductPage from './ProductPage';
 import CartPage from './CartPage';
 
 // ---------- Axios Config ----------
-axios.defaults.baseURL = 'https://marketpal-backend.onrender.com';
+// axios.defaults.baseURL = 'https://marketpal-backend.onrender.com';
+axios.defaults.baseURL = "https://3000-cs-878632597234-default.cs-asia-southeast1-fork.cloudshell.dev/";
 
 // ---------- Fallback Dummy Data ----------
 const localProducts = [
