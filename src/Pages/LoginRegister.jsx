@@ -31,7 +31,7 @@ export default function AuthPage() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://marketpal-backend.onrender.com/api/register", {
+      const res = await axios.post("https://3000-cs-878632597234-default.cs-asia-southeast1-fork.cloudshell.dev/api/register", {
         username,
         password,
         fullName,
