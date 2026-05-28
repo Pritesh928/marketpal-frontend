@@ -11,7 +11,7 @@ export default function AuthPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://marketpal-backend.onrender.com/api/login", {
+      const res = await axios.post("https://marketpal-backend-ol74.onrender.com/api/login", {
         username,
         password,
         role: localStorage.getItem("userRole"),
@@ -31,7 +31,7 @@ export default function AuthPage() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://marketpal-backend.onrender.com/api/register", {
+      const res = await axios.post("https://marketpal-backend-ol74.onrender.com/api/register", {
         username,
         password,
         fullName,

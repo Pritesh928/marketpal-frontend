@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./css/Admin.css";
 
-axios.defaults.baseURL = "https://marketpal-backend.onrender.com";
+axios.defaults.baseURL = "https://marketpal-backend-ol74.onrender.com";
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({ users: 0, products: 0, orders: 0 });
