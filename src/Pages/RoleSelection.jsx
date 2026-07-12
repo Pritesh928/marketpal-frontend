@@ -1,47 +1,106 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
-import "./css/RoleSelection.css";
-import { useNavigate } from "react-router-dom";
 
-export default function RoleSelection() {
-  const navigate = useNavigate();
-
-  const handleRoleSelect = (role) => {
-    localStorage.setItem("userRole", role);
-    localStorage.removeItem("isLoggedIn");
-
-    switch (role) {
-      case "admin":
-        navigate("/admin-auth"); 
-        break;
-      case "seller":
-      case "buyer":
-        navigate("/login");
-        break;
-      default:
-        navigate("/");
-    }
-  };
-
+export default function UnderConstruction() {
   return (
-    <div className="role-container">
-      <div className="role-card">
-        <h1>⚡ Welcome!</h1>
-        <p>Please select your role to continue</p>
-        <div className="button-group">
-          <button className="seller-btn" onClick={() => handleRoleSelect("seller")}>
-            I'm a Seller
-          </button>
-          <button className="buyer-btn" onClick={() => handleRoleSelect("buyer")}>
-            I'm a Buyer
-          </button>
+    <>
+      <style>{`
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+          font-family:Segoe UI,Arial,sans-serif;
+        }
+
+        body{
+          background:#f6f6f6;
+          color:#333;
+        }
+
+        .container{
+          min-height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          padding:40px 20px;
+        }
+
+        .content{
+          max-width:700px;
+          text-align:center;
+        }
+
+        img{
+          width:100%;
+          max-width:380px;
+          margin-bottom:35px;
+          animation: float 4s ease-in-out infinite;
+        }
+
+        h1{
+          color:#222;
+          margin-bottom:18px;
+          font-size:38px;
+          font-weight:700;
+        }
+
+        p{
+          font-size:17px;
+          line-height:1.8;
+          color:#666;
+          margin-bottom:15px;
+        }
+
+        .line{
+          width:70px;
+          height:3px;
+          background:#f39c12;
+          margin:30px auto;
+          border-radius:10px;
+        }
+
+        .footer{
+          margin-top:35px;
+          color:#888;
+          font-size:15px;
+        }
+
+        @media(max-width:768px){
+          p{
+            font-size:16px;
+          }
+        }
+      }
+      `}</style>
+
+      <div className="container">
+        <div className="content">
+          <img
+            src="/undraw_under-construction_c2y1.svg"
+            alt="Under Construction"
+          />
+
+          <h1>Website Under Development</h1>
+
+          <div className="line"></div>
+
+          <p>
+            We are currently updating and improving our website to provide a
+            better experience for everyone.
+          </p>
+
+          <p>
+            During this time, some pages and services may be temporarily
+            unavailable. We apologize for any inconvenience and appreciate your
+            patience while we complete the work.
+          </p>
+
+          <div className="footer">
+            Thank you for your understanding.<br />
+            We'll be back online soon :)
+          </div>
+
         </div>
       </div>
-
-      {/* 👑 Admin Access Button */}
-      <button className="admin-btn" onClick={() => handleRoleSelect("admin")}>
-        👑 Admin
-      </button>
-    </div>
+    </>
   );
 }
