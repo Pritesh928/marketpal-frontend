@@ -1,38 +1,38 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authAPI } from "../service/api";
-import styles from "./css/Register.module.css";
+import { useAuth } from "../context/AuthContext";
+import styles from "./css/Login.module.css";
 
-export default function Register() {
+export default function LoginPage() {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [formData, setFormData] = useState({
     username: "",
-    email: "",
     password: "",
   });
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError(""); 
+    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setSuccess("");
 
     try {
-      const response = await authAPI.register(formData);
-      setSuccess(response.data.message || "Registration successful! Check your email.");
-      setFormData({ username: "", email: "", password: "" });
-      setTimeout(() => navigate("/login"), 3000);
+      const response = await authAPI.login(formData);
+      const { token, username } = response.data;
+      login(token, { username });
+
+      navigate("/home");
     } catch (err) {
-      setError(err.response?.data?.error || "Registration failed. Try again.");
+      setError(err.response?.data?.error || "Login failed. Check your credentials.");
     } finally {
       setLoading(false);
     }
@@ -44,12 +44,10 @@ export default function Register() {
 
         <div className={styles.brand}>
           <h1 className={styles.brandName}>MarketPal</h1>
-          <p className={styles.brandSub}>Welcome(^_^) Create your account</p>
+          <p className={styles.brandSub}>Welcome back(^-^)</p>
         </div>
 
         {error && <div className={styles.errorBox}>{error}</div>}
-
-        {success && <div className={styles.successBox}>{success}</div>}
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.field}>
@@ -59,22 +57,7 @@ export default function Register() {
               name="username"
               value={formData.username}
               onChange={handleChange}
-              placeholder="e.g. you123"
-              className={styles.input}
-              required
-              minLength={3}
-              maxLength={30}
-            />
-          </div>
-
-          <div className={styles.field}>
-            <label className={styles.label}>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you123@gmail.com"
+              placeholder="e.g.you123"
               className={styles.input}
               required
             />
@@ -90,7 +73,6 @@ export default function Register() {
               placeholder="min 6 characters"
               className={styles.input}
               required
-              minLength={6}
             />
           </div>
 
@@ -99,13 +81,13 @@ export default function Register() {
             className={styles.button}
             disabled={loading}
           >
-            {loading ? "Creating account..." : "Create Account"}
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
         <p className={styles.footer}>
-          Already have an account?{" "}
-          <Link to="/login" className={styles.link}>Login</Link>
+          Don't have an account?{" "}
+          <Link to="/register" className={styles.link}>Register</Link>
         </p>
 
       </div>

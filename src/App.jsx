@@ -6,10 +6,10 @@ import UnderDevelopment from "./pages/UnderDevelopment";
 
 // this all pages are under development will be available soon.
 
-import Register from "./pages/Register";
 import ThemeToggle from "./components/ThemeToggle";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 // import HomePage from "./pages/HomePage";
-// import LoginPage from "./pages/LoginPage";
 // import VerifyEmailPage from "./pages/VerifyEmailPage";
 // import SellPage from "./pages/SellPage";
 // import MyProductsPage from "./pages/MyProductsPage";
@@ -30,8 +30,8 @@ function AppRoutes() {
       {/* public routes */}
       <Route path="/" element={< UnderDevelopment />} />
       {/* <Route path="/home" element={<HomePage />} /> */}
-      {/* <Route path="/login" element={<LoginPage />} /> */}
       <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
       {/* <Route path="/verify-email" element={<VerifyEmailPage />} /> */}
       {/* <Route path="/product/:id" element={<ProductDetailPage />} /> */}
       {/* <Route path="/sell" element={<ProtectedRoute><SellPage /></ProtectedRoute>} /> */}
