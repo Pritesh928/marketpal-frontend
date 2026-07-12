@@ -1,0 +1,22 @@
+.toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: background 0.2s, border 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  transform: scale(1.1);
+}
