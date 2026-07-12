@@ -1,3 +1,4 @@
+//settings json file to avoid compilation errors.
 {
     "java.configuration.updateBuildConfiguration": "automatic"
 }
