@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function UnderConstruction() {
+export default function UnderDevelopment() {
   return (
     <>
       <style>{`
