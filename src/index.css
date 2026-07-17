@@ -71,3 +71,8 @@ button {
 input, textarea {
   font-family: inherit;
 }
+
+.pageWrapper {
+  padding-top: 0;
+  min-height: calc(100vh - 60px);
+}

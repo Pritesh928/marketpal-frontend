@@ -6,9 +6,9 @@ import UnderDevelopment from "./pages/UnderDevelopment";
 
 // this all pages are under development will be available soon.
 
-import ThemeToggle from "./components/ThemeToggle";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Navbar from "./components/Navbar";
 // import HomePage from "./pages/HomePage";
 // import VerifyEmailPage from "./pages/VerifyEmailPage";
 // import SellPage from "./pages/SellPage";
@@ -18,7 +18,7 @@ import Login from "./pages/Login";
 function App() {
   return (
     <Router>
-      <ThemeToggle/>
+      <Navbar/>
       <AppRoutes />
     </Router>
   );
@@ -27,7 +27,6 @@ function App() {
 function AppRoutes() {
   return (
     <Routes>
-      {/* public routes */}
       <Route path="/" element={< UnderDevelopment />} />
       {/* <Route path="/home" element={<HomePage />} /> */}
       <Route path="/register" element={<Register />} />
