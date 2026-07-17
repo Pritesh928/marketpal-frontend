@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback} from "react";
 import { useNavigate } from "react-router-dom";
 import { productAPI } from "../service/api";
 import { useAuth } from "../context/AuthContext";
@@ -15,11 +15,7 @@ export default function HomePage() {
   const [searchResults, setSearchResults] = useState(null);
   const [searching, setSearching] = useState(false);
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
       const response = await productAPI.getAll();
@@ -29,7 +25,11 @@ export default function HomePage() {
     } finally {
       setLoading(false);
     }
-  };
+    }, []);
+
+    useEffect(() => {
+      fetchProducts();
+    }, [fetchProducts]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
