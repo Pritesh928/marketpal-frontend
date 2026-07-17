@@ -48,7 +48,7 @@ export const productAPI = {
   delete: (id) => api.delete(`/products/${id}`),
   uploadImage: (formData) =>
     api.post("/products/upload-image", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
+      // headers: { "Content-Type": "multipart/form-data" },
     }),
 };
 
