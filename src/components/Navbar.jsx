@@ -78,7 +78,7 @@ export default function Navbar() {
               <Link to="/sell" className={styles.mobileLink}
                 onClick={() => setMenuOpen(false)}>Sell</Link>
               <Link to="/my-products" className={styles.mobileLink}
-                onClick={() => setMenuOpen(false)}>My Listings</Link>
+                onClick={() => setMenuOpen(false)}>Listings</Link>
               <span className={styles.mobileUsername}>@{user?.username}</span>
               <button onClick={handleLogout} className={styles.mobileLogout}>
                 Logout

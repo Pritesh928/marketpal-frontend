@@ -139,7 +139,7 @@ export default function SellPage() {
                 <img src={imagePreview} alt="Preview" className={styles.preview} />
               ) : (
                 <div className={styles.uploadPlaceholder}>
-                  <span className={styles.uploadIcon}>📷</span>
+                  <span className={styles.uploadIcon}>🖼️</span>
                   <p>Click to upload image</p>
                   <p className={styles.uploadHint}>JPG, PNG, WebP — max 10MB</p>
                 </div>
