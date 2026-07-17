@@ -4,9 +4,6 @@ const BASE_URL = process.env.API_URL || "https://marketpal-backend-ol74.onrender
 
 const api = axios.create({
   baseURL: BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
 });
 
 api.interceptors.request.use(
@@ -14,6 +11,10 @@ api.interceptors.request.use(
     const jwtToken = localStorage.getItem("jwtToken");
     if (jwtToken) {
       config.headers.Authorization = `Bearer ${jwtToken}`;
+    }
+
+    if (!(config.data instanceof FormData)) {
+      config.headers["Content-Type"] = "application/json";
     }
     return config;
   },
