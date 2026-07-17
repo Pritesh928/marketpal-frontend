@@ -9,8 +9,7 @@ import UnderDevelopment from "./pages/UnderDevelopment";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
-// import HomePage from "./pages/HomePage";
-// import VerifyEmailPage from "./pages/VerifyEmailPage";
+import Home from "./pages/Home";
 // import SellPage from "./pages/SellPage";
 // import MyProductsPage from "./pages/MyProductsPage";
 // import ProductDetailPage from "./pages/ProductDetailPage";
@@ -28,10 +27,9 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={< UnderDevelopment />} />
-      {/* <Route path="/home" element={<HomePage />} /> */}
+      <Route path="/home" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
-      {/* <Route path="/verify-email" element={<VerifyEmailPage />} /> */}
       {/* <Route path="/product/:id" element={<ProductDetailPage />} /> */}
       {/* <Route path="/sell" element={<ProtectedRoute><SellPage /></ProtectedRoute>} /> */}
       {/* <Route path="/products" element={<ProtectedRoute><MyProductsPage /></ProtectedRoute>} /> */}
