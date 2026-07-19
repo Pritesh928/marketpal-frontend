@@ -39,32 +39,6 @@ export default function SellPage() {
     setError("");
   };
 
-  const uploadImage = async () => {
-  if (!imageFile) return null;
-
-  // // checking token is storing or not debugging the production token not storing issue
-  // const token = localStorage.getItem("token");
-  // console.log("Token at upload time:", token);
-  // console.log("All localStorage:", {
-  //   token: localStorage.getItem("token"),
-  //   user: localStorage.getItem("user"),
-  // });
-
-  // const data = new FormData();
-  // data.append("file", imageFile);
-
-  //   try {
-  //     setUploading(true);
-  //     const response = await productAPI.uploadImage(data);
-  //     return response.data.imageUrl;
-  //   } catch (err) {
-  //     console.log("Upload error status:", err.response?.status);
-  //     throw new Error("Image upload failed.");
-  //   } finally {
-  //     setUploading(false);
-  //   }
-  // };
-
   const handleImageSelect = (e) => {
     const file = e.target.files[0];
     if (!file) return;
