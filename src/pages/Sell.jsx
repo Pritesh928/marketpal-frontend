@@ -42,28 +42,28 @@ export default function SellPage() {
   const uploadImage = async () => {
   if (!imageFile) return null;
 
-  // checking token is storing or not debugging the production token not storing issue
-  const token = localStorage.getItem("token");
-  console.log("Token at upload time:", token);
-  console.log("All localStorage:", {
-    token: localStorage.getItem("token"),
-    user: localStorage.getItem("user"),
-  });
+  // // checking token is storing or not debugging the production token not storing issue
+  // const token = localStorage.getItem("token");
+  // console.log("Token at upload time:", token);
+  // console.log("All localStorage:", {
+  //   token: localStorage.getItem("token"),
+  //   user: localStorage.getItem("user"),
+  // });
 
-  const data = new FormData();
-  data.append("file", imageFile);
+  // const data = new FormData();
+  // data.append("file", imageFile);
 
-    try {
-      setUploading(true);
-      const response = await productAPI.uploadImage(data);
-      return response.data.imageUrl;
-    } catch (err) {
-      console.log("Upload error status:", err.response?.status);
-      throw new Error("Image upload failed.");
-    } finally {
-      setUploading(false);
-    }
-  };
+  //   try {
+  //     setUploading(true);
+  //     const response = await productAPI.uploadImage(data);
+  //     return response.data.imageUrl;
+  //   } catch (err) {
+  //     console.log("Upload error status:", err.response?.status);
+  //     throw new Error("Image upload failed.");
+  //   } finally {
+  //     setUploading(false);
+  //   }
+  // };
 
   const handleImageSelect = (e) => {
     const file = e.target.files[0];
@@ -83,23 +83,23 @@ export default function SellPage() {
     setImagePreview(URL.createObjectURL(file));
     setError("");
   };
-  // temporarily hidded due to debugging production issues
-  // const uploadImage = async () => {
-  //   if (!imageFile) return null;
+  
+  const uploadImage = async () => {
+    if (!imageFile) return null;
 
-  //   const data = new FormData();
-  //   data.append("file", imageFile);
+    const data = new FormData();
+    data.append("file", imageFile);
 
-  //   try {
-  //     setUploading(true);
-  //     const response = await productAPI.uploadImage(data);
-  //     return response.data.imageUrl;
-  //   } catch (err) {
-  //     throw new Error("Image upload failed. Try again.");
-  //   } finally {
-  //     setUploading(false);
-  //   }
-  // };
+    try {
+      setUploading(true);
+      const response = await productAPI.uploadImage(data);
+      return response.data.imageUrl;
+    } catch (err) {
+      throw new Error("Image upload failed. Try again.");
+    } finally {
+      setUploading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

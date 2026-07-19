@@ -27,7 +27,7 @@ api.interceptors.response.use(
     if (error.response?.status === 401 || error.response?.status === 403) {
       localStorage.removeItem("jwtToken");
       localStorage.removeItem("user");
-      // window.location.href = "/login";
+      window.location.href = "/login";
     }
     return Promise.reject(error);
   }
@@ -49,7 +49,7 @@ export const productAPI = {
   delete: (id) => api.delete(`/products/${id}`),
   uploadImage: (formData) =>
     api.post("/products/upload-image", formData, {
-      // headers: { "Content-Type": "multipart/form-data" },
+      headers: { "Content-Type": "multipart/form-data" },
     }),
 };
 
