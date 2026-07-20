@@ -34,51 +34,61 @@
   );
 
   export const authAPI = {
-    register: (data) => api.post("/auth/register", data),
-    login: (data) => api.post("/auth/login", data),
-    verifyEmail: (jwtToken) => api.get(`/auth/verify-email?jwtToken=${jwtToken}`),
+    register: (data) => axios.post(`${BASE_URL}/auth/register`, data, {
+      headers: { "Content-Type": "application/json" }
+    }),
+    login: (data) => axios.post(`${BASE_URL}/auth/login`, data, {
+      headers: { "Content-Type": "application/json" }
+    }),
+    verifyEmail: (token) => axios.get(`${BASE_URL}/auth/verify-email?token=${token}`),
   };
 
   export const productAPI = {
-    getAll: () => api.get("/products/"),
-    getById: (id) => api.get(`/products/${id}`),
-    search: (keyword) => api.get(`/products/search?keyword=${keyword}`),
-    getMyProducts: () => {
-      const token = localStorage.getItem("token");
-      return axios.get(`${BASE_URL}/products/my-products`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-    },
-    create: (data) => {
-      const token = localStorage.getItem("token");
-      return axios.post(`${BASE_URL}/products/`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json"
-        }
-      });
-    },
-    update: (id, data) => {
-      const token = localStorage.getItem("token");
-      return axios.put(`${BASE_URL}/products/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json"
-        }
-      });
-    },
-    delete: (id) => {
-      const token = localStorage.getItem("token");
-      return axios.delete(`${BASE_URL}/products/${id}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-    },
-    uploadImage: (formData) => {
-      const token = localStorage.getItem("token");
-      return axios.post(`${BASE_URL}/products/upload-image`, formData, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-    },
-  };
+  getAll: () => {
+    return axios.get(`${BASE_URL}/products/`);
+  },
+  getById: (id) => {
+    return axios.get(`${BASE_URL}/products/${id}`);
+  },
+  search: (keyword) => {
+    return axios.get(`${BASE_URL}/products/search?keyword=${keyword}`);
+  },
+  getMyProducts: () => {
+    const token = localStorage.getItem("token");
+    return axios.get(`${BASE_URL}/products/my-products`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+  },
+  create: (data) => {
+    const token = localStorage.getItem("token");
+    return axios.post(`${BASE_URL}/products/`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    });
+  },
+  update: (id, data) => {
+    const token = localStorage.getItem("token");
+    return axios.put(`${BASE_URL}/products/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    });
+  },
+  delete: (id) => {
+    const token = localStorage.getItem("token");
+    return axios.delete(`${BASE_URL}/products/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+  },
+  uploadImage: (formData) => {
+    const token = localStorage.getItem("token");
+    return axios.post(`${BASE_URL}/products/upload-image`, formData, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+  },
+};
 
 export default api;
