@@ -47,10 +47,19 @@ export const productAPI = {
   create: (data) => api.post("/products/", data),
   update: (id, data) => api.put(`/products/${id}`, data),
   delete: (id) => api.delete(`/products/${id}`),
-  uploadImage: (formData) =>
-    api.post("/products/upload-image", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    }),
+  uploadImage: (formData) => {
+  const token = localStorage.getItem("token");
+  return axios.post(
+    `${BASE_URL}/products/upload-image`,
+    formData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        // no Content-Type — browser sets it with boundary
+      },
+    }
+  );
+  },
 };
 
 export default api;
