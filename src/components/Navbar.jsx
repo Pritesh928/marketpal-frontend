@@ -30,7 +30,7 @@ export default function Navbar() {
           {isLoggedIn ? (
             <>
               <Link to="/sell" className={styles.navLink}>Sell</Link>
-              <Link to="/my-products" className={styles.navLink}>My Listings</Link>
+              <Link to="/my-products" className={styles.navLink}>My Products</Link>
               <span className={styles.username}>@{user?.username}</span>
               <button onClick={handleLogout} className={styles.logoutBtn}>
                 Logout
