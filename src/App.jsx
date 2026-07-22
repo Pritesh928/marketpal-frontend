@@ -2,16 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import UnderDevelopment from "./pages/UnderDevelopment"; 
-
-// this all pages are under development will be available soon.
-
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Sell from "./pages/Sell";
 import ProtectedRoute from "./components/ProtectedRoute";
-// import MyProductsPage from "./pages/MyProductsPage";
+import MyProducts from "./pages/MyProducts";
 import ProductDetail from "./pages/ProductDetail";
 
 function App() {
@@ -31,10 +28,12 @@ function AppRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sell" element={
-      <ProtectedRoute> <Sell /></ProtectedRoute>
+      <ProtectedRoute> <Sell /> </ProtectedRoute>
       } />
       <Route path="/product/:id" element={<ProductDetail />} />
-      {/* <Route path="/products" element={<ProtectedRoute><MyProductsPage /></ProtectedRoute>} /> */}
+      <Route path="/products" element={
+        <ProtectedRoute> <MyProducts /> </ProtectedRoute>
+      } />
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
