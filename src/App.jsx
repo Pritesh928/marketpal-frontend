@@ -10,6 +10,7 @@ import Sell from "./pages/Sell";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MyProducts from "./pages/MyProducts";
 import ProductDetail from "./pages/ProductDetail";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function AppRoutes() {
       <Route path="/product/:id" element={<ProductDetail />} />
       <Route path="/my-products" element={
         <ProtectedRoute> <MyProducts /> </ProtectedRoute>
+      } />
+      <Route path="/edit-product/:id" element={
+        <ProtectedRoute> <EditProduct /> </ProtectedRoute>
       } />
 
       <Route path="*" element={<Navigate to="/" replace />} />
