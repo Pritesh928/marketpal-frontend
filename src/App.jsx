@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import Sell from "./pages/Sell";
 import ProtectedRoute from "./components/ProtectedRoute";
 // import MyProductsPage from "./pages/MyProductsPage";
-// import ProductDetailPage from "./pages/ProductDetailPage";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function AppRoutes() {
       <Route path="/sell" element={
       <ProtectedRoute> <Sell /></ProtectedRoute>
       } />
-      {/* <Route path="/product/:id" element={<ProductDetailPage />} /> */}
+      <Route path="/product/:id" element={<ProductDetail />} />
       {/* <Route path="/products" element={<ProtectedRoute><MyProductsPage /></ProtectedRoute>} /> */}
 
       <Route path="*" element={<Navigate to="/" replace />} />
