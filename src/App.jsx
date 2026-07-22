@@ -31,7 +31,7 @@ function AppRoutes() {
       <ProtectedRoute> <Sell /> </ProtectedRoute>
       } />
       <Route path="/product/:id" element={<ProductDetail />} />
-      <Route path="/products" element={
+      <Route path="/my-products" element={
         <ProtectedRoute> <MyProducts /> </ProtectedRoute>
       } />
 
