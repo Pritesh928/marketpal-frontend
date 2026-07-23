@@ -24,7 +24,8 @@ function App() {
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={< UnderDevelopment />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/updates" element={<UnderDevelopment />} />
       <Route path="/home" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
