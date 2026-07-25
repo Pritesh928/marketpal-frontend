@@ -257,12 +257,13 @@
 
 .inCartBtn {
   padding: 14px;
-  background: var(--success-bg);
-  border: 2px solid var(--success-border);
+  background: #ecfdf5;
+  border: 2px solid #a7f3d0;
   border-radius: 12px;
   font-size: 15px;
   font-weight: 700;
-  color: var(--success-text);
+  color: #065f46;
   cursor: not-allowed;
   width: 100%;
+  opacity: 0.85;
 }
