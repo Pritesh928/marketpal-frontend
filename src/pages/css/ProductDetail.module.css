@@ -255,7 +255,7 @@
   color: white;
 }
 
-.inCartBtn {
+.isInCart {
   padding: 14px;
   background: var(--success-bg);
   border: 2px solid var(--success-border);
