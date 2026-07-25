@@ -38,23 +38,27 @@ export default function Navbar() {
           </Link>
         )}
 
-          {isLoggedIn ? (
-            <>
-              <Link to="/sell" className={styles.navLink}>Sell</Link>
-              <Link to="/my-products" className={styles.navLink}>My Products</Link>
-              <span className={styles.username}>@{user?.username}</span>
-              <button onClick={handleLogout} className={styles.logoutBtn}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login" className={styles.navLink}>Login</Link>
-              <Link to="/register" className={styles.registerBtn}>
-                Register
-              </Link>
-            </>
-          )}
+        {isLoggedIn ? (
+          <>
+            <Link to="/sell" className={styles.navLink}>Sell</Link>
+            <Link to="/my-products" className={styles.navLink}>My Products</Link>
+            <Link to="/cart" className={styles.cartBtn}>
+              🛒
+              {cartCount > 0 && (
+                <span className={styles.cartBadge}>{cartCount}</span>
+              )}
+            </Link>
+            <span className={styles.username}>@{user?.username}</span>
+            <button onClick={handleLogout} className={styles.logoutBtn}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className={styles.navLink}>Login</Link>
+            <Link to="/register" className={styles.registerBtn}>Register</Link>
+          </>
+        )}
 
           <button
             className={styles.themeBtn}
