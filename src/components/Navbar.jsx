@@ -29,15 +29,6 @@ export default function Navbar() {
         <div className={styles.desktopNav}>
           <Link to="/home" className={styles.navLink}>Browse</Link>
 
-          {isLoggedIn && (
-          <Link to="/cart" className={styles.cartBtn}>
-              🛒
-            {cartCount > 0 && (
-          <span className={styles.cartBadge}>{cartCount}</span>
-          )}
-          </Link>
-        )}
-
         {isLoggedIn ? (
           <>
             <Link to="/sell" className={styles.navLink}>Sell</Link>
