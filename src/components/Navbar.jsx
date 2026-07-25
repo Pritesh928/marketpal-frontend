@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
+import { useCart } from "../context/CartContext";
 import styles from "./css/Navbar.module.css";
 
 export default function Navbar() {
   const { isLoggedIn, user, logout } = useAuth();
   const { isDark, toggleTheme } = useTheme();
+  const { cartCount } = useCart();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -26,6 +28,15 @@ export default function Navbar() {
 
         <div className={styles.desktopNav}>
           <Link to="/home" className={styles.navLink}>Browse</Link>
+
+          {isLoggedIn && (
+          <Link to="/cart" className={styles.cartBtn}>
+              🛒
+            {cartCount > 0 && (
+          <span className={styles.cartBadge}>{cartCount}</span>
+          )}
+          </Link>
+        )}
 
           {isLoggedIn ? (
             <>
@@ -72,6 +83,13 @@ export default function Navbar() {
         <div className={styles.mobileMenu}>
           <Link to="/home" className={styles.mobileLink}
             onClick={() => setMenuOpen(false)}>Browse</Link>
+
+          {isLoggedIn && (
+              <Link to="/cart" className={styles.mobileLink}
+                onClick={() => setMenuOpen(false)}>
+                🛒 Cart {cartCount > 0 && `(${cartCount})`}
+              </Link>
+        )}
 
           {isLoggedIn ? (
             <>

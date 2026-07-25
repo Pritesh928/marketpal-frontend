@@ -194,6 +194,42 @@
   gap: 16px;
 }
 
+.buyActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addCartBtn {
+  padding: 14px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.addCartBtn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.inCartBtn {
+  padding: 14px;
+  background: var(--success-bg);
+  border: 2px solid var(--success-border);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--success-text);
+  cursor: not-allowed;
+  width: 100%;
+}
+
 .spinner {
   width: 40px;
   height: 40px;

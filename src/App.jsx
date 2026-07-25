@@ -11,6 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import MyProducts from "./pages/MyProducts";
 import ProductDetail from "./pages/ProductDetail";
 import EditProduct from "./pages/EditProduct";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -39,7 +40,9 @@ function AppRoutes() {
       <Route path="/edit-product/:id" element={
         <ProtectedRoute> <EditProduct /> </ProtectedRoute>
       } />
-
+      <Route path="/cart" element={
+        <ProtectedRoute> <Cart /> </ProtectedRoute>
+      } />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

@@ -2,16 +2,25 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { productAPI } from "../service/api";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 import styles from "./css/ProductDetail.module.css";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { isLoggedIn, user } = useAuth();
+  const { addToCart, isInCart } = useCart();
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const handleAddToCart = () => {
+  if (!isLoggedIn) {
+    navigate("/login");
+    return;
+  }
+    addToCart(product);
+  };
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -112,9 +121,17 @@ export default function ProductDetail() {
                 </button>
               </div>
             ) : (
-              <button onClick={handleBuy} className={styles.buyBtn}>
-                {isLoggedIn ? "Buy Now" : "Login to Buy"}
-              </button>
+              <div className= {styles.buyActions}>
+                <button
+                onClick={handleAddToCart}
+                className={isInCart(product?.id)}
+                >
+                  {isInCart(product?.id) ? "✓ Added to Cart" : "Add to Cart"}
+                </button>
+                <button onClick={handleBuy} className= {styles.buyBtn}>
+                  {isLoggedIn ? "Buy Now" : "Login to Buy"}
+                </button>
+              </div>
             )}
 
             <p className={styles.listedAt}>
