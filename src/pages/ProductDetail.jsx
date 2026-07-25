@@ -124,7 +124,7 @@ export default function ProductDetail() {
               <div className= {styles.buyActions}>
                 <button
                 onClick={handleAddToCart}
-                className={isInCart(product?.id)}
+                className={isInCart(product?.id) ? styles.inCartBtn : styles.addCartBtn}
                 >
                   {isInCart(product?.id) ? "✓ Added to Cart" : "Add to Cart"}
                 </button>

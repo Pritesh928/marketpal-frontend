@@ -76,15 +76,3 @@ input, textarea {
   padding-top: 0;
   min-height: calc(100vh - 60px);
 }
-
-.inCartBtn {
-  padding: 14px;
-  background: var(--success-bg);
-  border: 2px solid var(--success-border);
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--success-text);
-  cursor: not-allowed;
-  width: 100%;
-}
