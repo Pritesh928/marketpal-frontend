@@ -12,6 +12,9 @@ import MyProducts from "./pages/MyProducts";
 import ProductDetail from "./pages/ProductDetail";
 import EditProduct from "./pages/EditProduct";
 import Cart from "./pages/Cart";
+import Payment from "./pages/Payment";
+import PaymentSuccess from "./pages/PaymentSuccess";
+
 
 function App() {
   return (
@@ -42,6 +45,12 @@ function AppRoutes() {
       } />
       <Route path="/cart" element={
         <ProtectedRoute> <Cart /> </ProtectedRoute>
+      } />
+      <Route path="/payment" element={
+        <ProtectedRoute> <Payment /> </ProtectedRoute>
+      } />
+      <Route path="/payment-success" element={
+        <ProtectedRoute> <PaymentSuccess /> </ProtectedRoute>
       } />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
