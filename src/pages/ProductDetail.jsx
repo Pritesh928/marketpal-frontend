@@ -41,7 +41,8 @@ export default function ProductDetail() {
       navigate("/login");
       return;
     }
-    navigate("/payment");
+    addToCart(product);
+    navigate("/cart");
   };
 
   const handleEdit = () => navigate(`/edit-product/${id}`);
