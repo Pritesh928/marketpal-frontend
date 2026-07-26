@@ -4,8 +4,6 @@ import { useCart } from "../context/CartContext";
 import { paymentAPI } from "../service/api";
 import styles from "./css/Payment.module.css";
 
-const RAZORPAY_KEY = process.env.REACT_APP_RAZORPAY_KEY_ID;
-
 export default function Payment() {
   const navigate = useNavigate();
   const { cartItems, cartTotal, clearCart } = useCart();
