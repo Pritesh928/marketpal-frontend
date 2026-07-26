@@ -34,24 +34,24 @@
   );
 
   export const paymentAPI = {
-  createOrder: (data) => {
-    const token = localStorage.getItem("token");
-    return axios.post(`${BASE_URL}/payment/create-order`, data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
-      }
-    });
-  },
-  verifyPayment: (data) => {
-    const token = localStorage.getItem("token");
-    return axios.post(`${BASE_URL}/payment/verify`, data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
-      }
-    });
-   },
+    createOrder: (data) => {
+      const token = localStorage.getItem("token");
+      return axios.post(`${BASE_URL}/payment/create-order`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      });
+    },
+    verifyPayment: (data) => {
+      const token = localStorage.getItem("token");
+      return axios.post(`${BASE_URL}/payment/verify`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      });
+    },
   };
 
   export const authAPI = {
