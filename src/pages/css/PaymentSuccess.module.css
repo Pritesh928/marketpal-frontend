@@ -51,3 +51,21 @@
 .homeBtn:hover {
   background: var(--accent-hover);
 }
+
+.ordersBtn {
+  padding: 13px 28px;
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.ordersBtn:hover {
+  background: var(--accent);
+  color: white;
+}

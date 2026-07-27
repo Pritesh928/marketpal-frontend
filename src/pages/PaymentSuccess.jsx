@@ -19,6 +19,12 @@ export default function PaymentSuccessPage() {
         >
           Continue Shopping
         </button>
+        <button
+        onClick={() => navigate("/orders")}
+        className={styles.ordersBtn}
+        >
+          View My Orders
+      </button>
       </div>
     </div>
   );

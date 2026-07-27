@@ -64,6 +64,15 @@
     verifyEmail: (token) => axios.get(`${BASE_URL}/auth/verify-email?token=${token}`),
   };
 
+  export const orderAPI = {
+  getMyOrders: () => {
+    const token = localStorage.getItem("token");
+    return axios.get(`${BASE_URL}/orders/my-orders`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+   },
+  };
+
   export const productAPI = {
   getAll: () => {
     return axios.get(`${BASE_URL}/products/`);

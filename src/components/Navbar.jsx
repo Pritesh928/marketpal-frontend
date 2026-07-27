@@ -33,6 +33,7 @@ export default function Navbar() {
           <>
             <Link to="/sell" className={styles.navLink}>Sell</Link>
             <Link to="/my-products" className={styles.navLink}>My Products</Link>
+            <Link to="/orders" className={styles.navLink}>Orders</Link>
             <Link to="/cart" className={styles.cartBtn}>
               🛒
               {cartCount > 0 && (
