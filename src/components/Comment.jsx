@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { commentAPI } from "../service/api";
 import { useAuth } from "../context/AuthContext";
-import styles from "./css/CommentSection.module.css";
+import styles from "./css/Comment.module.css";
 
-export default function CommentSection({ productId }) {
+export default function Comment({ productId }) {
   const { isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
 
