@@ -144,7 +144,7 @@ export default function ProductDetail() {
           </div>
         </div>
         <div className={styles.commentsWrapper}>
-            <CommentSection productId={id} />
+          <CommentSection productId={id} />
       </div>
       </div>
     </div>
