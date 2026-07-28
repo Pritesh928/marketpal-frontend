@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { productAPI } from "../service/api";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
+import CommentSection from "../components/CommentSection";
 import styles from "./css/ProductDetail.module.css";
 
 export default function ProductDetail() {
@@ -142,6 +143,9 @@ export default function ProductDetail() {
             </p>
           </div>
         </div>
+        <div className={styles.commentsWrapper}>
+            <CommentSection productId={id} />
+      </div>
       </div>
     </div>
   );

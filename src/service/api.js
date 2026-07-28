@@ -54,6 +54,32 @@
     },
   };
 
+  export const commentAPI = {
+  getComments: (productId) =>
+    axios.get(`${BASE_URL}/comments/product/${productId}`),
+
+  addComment: (productId, data) => {
+    const token = localStorage.getItem("token");
+    return axios.post(
+      `${BASE_URL}/comments/product/${productId}`,
+      data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  },
+
+  deleteComment: (commentId) => {
+    const token = localStorage.getItem("token");
+    return axios.delete(`${BASE_URL}/comments/${commentId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+   },
+  };
+
   export const authAPI = {
     register: (data) => axios.post(`${BASE_URL}/auth/register`, data, {
       headers: { "Content-Type": "application/json" }

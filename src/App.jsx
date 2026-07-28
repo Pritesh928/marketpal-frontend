@@ -15,6 +15,7 @@ import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Orders from "./pages/Orders";
+import CommentSection from "../components/CommentSection";
 
 
 function App() {
