@@ -7,7 +7,7 @@ Sell Anything u want!!
  2. Buy Anything
  3. See your listings
  4. See your orders
- 5. bwose products
+ 5. browse products
  6. pay using any card or netbanking on razorpay
  7. comment on any post if any query or feedback you want to give for a particular product
  8. Dark and light theme toggle
