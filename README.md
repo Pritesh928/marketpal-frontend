@@ -2,7 +2,7 @@
 Your Shopping Buddy :)
 Sell Anything u want!!
  
- # Features
+ # Features?
  1. Sell Anything
  2. Buy Anything
  3. See your listings
